@@ -1,8 +1,10 @@
+import jdk.jfr.TransitionFrom;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class NQueensGUI {
-    static int N = 20; // Dimensão do tabuleiro
+    static int N = 4; // Dimensão do tabuleiro
     static JFrame frame = new JFrame("N Queens Problem");
 
     public static void main(String[] args) {
@@ -23,6 +25,7 @@ public class NQueensGUI {
 
         for (int col = 0; col < N; col++) {
             if (isSafe(board, row, col)) {
+                System.out.println("Entrou: " + row +" " + col);
                 board[row][col] = 1;
                 updateBoard(board); // Atualiza a interface gráfica
                 sleep(500); // Espera 500ms para visualizar a mudança
@@ -31,6 +34,7 @@ public class NQueensGUI {
                 updateBoard(board); // Atualiza a interface gráfica
                 sleep(500);
             }
+            System.out.println("Não entrou: " + row +" " + col);
         }
         return false;
     }
